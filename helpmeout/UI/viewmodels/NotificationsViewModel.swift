@@ -27,7 +27,7 @@ extension NotificationsViewModel {
                     Log.error(error)
                     onData([])
                 } else {
-                    onData(sosRequests)
+                    onData(sosRequests.sorted { $0.date.compare($1.date) == .orderedDescending })
                 }
             }
         } else {

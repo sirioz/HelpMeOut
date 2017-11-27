@@ -78,7 +78,7 @@ extension NotificationsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell()
         if let sosRequest = viewModel.sosRequests?[indexPath.row] {
             cell.textLabel?.text = NSLocalizedString("Sos request", comment: "")
-            cell.detailTextLabel?.text = tsFormatter.string(from: sosRequest.timeStamp)
+            cell.detailTextLabel?.text = tsFormatter.string(from: sosRequest.date)
         }
         
         return cell

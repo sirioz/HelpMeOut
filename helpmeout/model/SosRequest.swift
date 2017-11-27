@@ -9,11 +9,11 @@
 import Foundation
 
 struct SosRequest {
-    let timeStamp: Date
+    let date: Date
     let caregiversShortId: [ShortId]
     
     init(unixTs: TimeInterval, caregiversShortId: [ShortId]) {
-        self.timeStamp = Date(timeIntervalSince1970: unixTs / 1000)
+        self.date = Date(timeIntervalSince1970: unixTs / 1000)
         self.caregiversShortId = caregiversShortId
     }
 }
