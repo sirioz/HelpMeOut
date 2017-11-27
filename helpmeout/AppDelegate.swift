@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     let services = Services()
+    var loginCoordinator: LoginCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -27,12 +28,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window!.makeKeyAndVisible()
         window!.rootViewController = UIViewController()
         
-        Auth.auth().addStateDidChangeListener { (auth, user) in
-            if user != nil {
-                MainCoordinator(withWindow: self.window!).start()
-            } else {
-                LoginCoordinator(withWindow: self.window!).start()
-            }
+        //try? Auth.auth().signOut()
+        
+//        services.cloudFunctions?.createNewUser(uid: "4uv5FbamwXb3tihe4iSTw9EtKLk2", userType: .patient).done({ shortId in
+//            Log.debug("shortId: \(shortId)")
+//        })
+//        return true;
+
+        if services.cloudFunctions?.isAuthenticated ?? false {
+            MainCoordinator(withWindow: self.window!, cloudFunctions: services.cloudFunctions!).start()
+        } else {
+            loginCoordinator = LoginCoordinator(withWindow: self.window!, delegate: self)
+            loginCoordinator!.start()
         }
         
         return true
@@ -102,6 +109,22 @@ extension AppDelegate {
         
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
+    }
+}
+
+// MARK: Login delegate
+extension AppDelegate: LoginDelegate {
+    func didSignInWith(user: User?, error: Error?) {
+        if let error = error {
+            Log.error(error)
+            return
+        }
+        
+        if let user = user {
+            services.cloudFunctions?.createNewUser(uid: user.uid, userType: .patient).done({ shortId in
+                MainCoordinator(withWindow: self.window!, cloudFunctions: self.services.cloudFunctions!).start()
+            })
+        }
     }
 }
 

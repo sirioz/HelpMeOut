@@ -22,6 +22,16 @@
 		B30771491FCA485D000688D9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30771471FCA485D000688D9 /* HomeViewController.swift */; };
 		B307714B1FCA499B000688D9 /* CaregiversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307714A1FCA499B000688D9 /* CaregiversViewController.swift */; };
 		B307714D1FCA4A73000688D9 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307714C1FCA4A73000688D9 /* NotificationsViewController.swift */; };
+		B317A8801FCAE87700292FCE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A87F1FCAE87700292FCE /* HomeViewModel.swift */; };
+		B317A8811FCAE87700292FCE /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A87F1FCAE87700292FCE /* HomeViewModel.swift */; };
+		B317A8831FCB022F00292FCE /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8821FCB022F00292FCE /* UIImage+Utils.swift */; };
+		B317A8841FCB022F00292FCE /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8821FCB022F00292FCE /* UIImage+Utils.swift */; };
+		B317A8861FCB608A00292FCE /* CaregiversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */; };
+		B317A8871FCB608A00292FCE /* CaregiversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */; };
+		B317A8891FCB6BAD00292FCE /* Caregiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8881FCB6BAD00292FCE /* Caregiver.swift */; };
+		B317A88A1FCB6BAD00292FCE /* Caregiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8881FCB6BAD00292FCE /* Caregiver.swift */; };
+		B317A88D1FCB851A00292FCE /* CaregiversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A88B1FCB851A00292FCE /* CaregiversTableViewCell.swift */; };
+		B317A88E1FCB851A00292FCE /* CaregiversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A88B1FCB851A00292FCE /* CaregiversTableViewCell.swift */; };
 		B320DF9F1FC4E4B800D430FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DF9E1FC4E4B800D430FE /* AppDelegate.swift */; };
 		B320DFA11FC4E4B800D430FE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DFA01FC4E4B800D430FE /* ViewController.swift */; };
 		B320DFA41FC4E4B800D430FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA21FC4E4B800D430FE /* Main.storyboard */; };
@@ -32,7 +42,6 @@
 		B360D2021FC4EDC60091DE3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DFA01FC4E4B800D430FE /* ViewController.swift */; };
 		B360D2031FC4EDC60091DE3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DF9E1FC4E4B800D430FE /* AppDelegate.swift */; };
 		B360D2071FC4EDC60091DE3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA71FC4E4B800D430FE /* LaunchScreen.storyboard */; };
-		B360D2091FC4EDC60091DE3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA51FC4E4B800D430FE /* Assets.xcassets */; };
 		B360D20A1FC4EDC60091DE3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA21FC4E4B800D430FE /* Main.storyboard */; };
 		B360D2131FC4EE920091DE3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B360D2121FC4EE920091DE3C /* GoogleService-Info.plist */; };
 		B360D2151FC4EEC10091DE3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B360D2141FC4EEC10091DE3C /* GoogleService-Info.plist */; };
@@ -95,6 +104,11 @@
 		B30771471FCA485D000688D9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B307714A1FCA499B000688D9 /* CaregiversViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiversViewController.swift; sourceTree = "<group>"; };
 		B307714C1FCA4A73000688D9 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		B317A87F1FCAE87700292FCE /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		B317A8821FCB022F00292FCE /* UIImage+Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiversViewModel.swift; sourceTree = "<group>"; };
+		B317A8881FCB6BAD00292FCE /* Caregiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caregiver.swift; sourceTree = "<group>"; };
+		B317A88B1FCB851A00292FCE /* CaregiversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiversTableViewCell.swift; sourceTree = "<group>"; };
 		B320DF9B1FC4E4B800D430FE /* helpmeout-patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "helpmeout-patient.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B320DF9E1FC4E4B800D430FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B320DFA01FC4E4B800D430FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +212,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B317A8911FCB852700292FCE /* tableviewcells */ = {
+			isa = PBXGroup;
+			children = (
+				B317A88B1FCB851A00292FCE /* CaregiversTableViewCell.swift */,
+			);
+			path = tableviewcells;
+			sourceTree = "<group>";
+		};
 		B320DF921FC4E4B700D430FE = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +310,7 @@
 		B38B5BE61FC9899500F60337 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B317A8821FCB022F00292FCE /* UIImage+Utils.swift */,
 				B38B5BEF1FC98CFE00F60337 /* String+Utils.swift */,
 				B38B5BEB1FC98CD800F60337 /* UIAlertController+Utils.swift */,
 				B38B5BEC1FC98CDB00F60337 /* UIStoryboard+Utils.swift */,
@@ -310,6 +333,7 @@
 			children = (
 				B38B5C0C1FC9A9AA00F60337 /* Types.swift */,
 				B3E9AFE31FC9F00200BA13CE /* Constants.swift */,
+				B317A8881FCB6BAD00292FCE /* Caregiver.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -336,6 +360,7 @@
 		B3E9AFE81FC9F1B300BA13CE /* viewcontrollers */ = {
 			isa = PBXGroup;
 			children = (
+				B317A8911FCB852700292FCE /* tableviewcells */,
 				B30771351FCA14A7000688D9 /* BaseViewController.swift */,
 				B30771471FCA485D000688D9 /* HomeViewController.swift */,
 				B307714A1FCA499B000688D9 /* CaregiversViewController.swift */,
@@ -347,6 +372,8 @@
 		B3E9AFE91FC9F1C000BA13CE /* viewmodels */ = {
 			isa = PBXGroup;
 			children = (
+				B317A87F1FCAE87700292FCE /* HomeViewModel.swift */,
+				B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -536,7 +563,6 @@
 			files = (
 				B38B5C0A1FC990FE00F60337 /* Localizable.strings in Resources */,
 				B360D2071FC4EDC60091DE3C /* LaunchScreen.storyboard in Resources */,
-				B360D2091FC4EDC60091DE3C /* Assets.xcassets in Resources */,
 				B360D20A1FC4EDC60091DE3C /* Main.storyboard in Resources */,
 				B360D2151FC4EEC10091DE3C /* GoogleService-Info.plist in Resources */,
 			);
@@ -814,20 +840,25 @@
 			files = (
 				B30771451FCA3D45000688D9 /* MainCoordinator.swift in Sources */,
 				B307713C1FCA188C000688D9 /* LoginCoordinator.swift in Sources */,
+				B317A8891FCB6BAD00292FCE /* Caregiver.swift in Sources */,
 				B320DFA11FC4E4B800D430FE /* ViewController.swift in Sources */,
 				B38B5C101FC9AB7B00F60337 /* Services.swift in Sources */,
 				B38B5BEA1FC98BA700F60337 /* Logger.swift in Sources */,
 				B30771481FCA485D000688D9 /* HomeViewController.swift in Sources */,
 				B38B5BF21FC98D3400F60337 /* Log.swift in Sources */,
 				B320DF9F1FC4E4B800D430FE /* AppDelegate.swift in Sources */,
+				B317A88D1FCB851A00292FCE /* CaregiversTableViewCell.swift in Sources */,
 				B307714B1FCA499B000688D9 /* CaregiversViewController.swift in Sources */,
 				B30771361FCA14A7000688D9 /* BaseViewController.swift in Sources */,
 				B36F7DD11FC61BF10041EC13 /* CloudFunctions.swift in Sources */,
+				B317A8831FCB022F00292FCE /* UIImage+Utils.swift in Sources */,
 				B307713F1FCA18A9000688D9 /* Coordinator.swift in Sources */,
 				B38B5BE91FC98BA700F60337 /* ConsoleLogger.swift in Sources */,
 				B3E9AFE41FC9F00200BA13CE /* Constants.swift in Sources */,
 				B38B5BF01FC98CFE00F60337 /* String+Utils.swift in Sources */,
 				B307714D1FCA4A73000688D9 /* NotificationsViewController.swift in Sources */,
+				B317A8801FCAE87700292FCE /* HomeViewModel.swift in Sources */,
+				B317A8861FCB608A00292FCE /* CaregiversViewModel.swift in Sources */,
 				B36F7DD41FC61D530041EC13 /* FirCloudFunctions.swift in Sources */,
 				B38B5BEE1FC98CDB00F60337 /* UIStoryboard+Utils.swift in Sources */,
 				B38B5C0D1FC9A9AA00F60337 /* Types.swift in Sources */,
@@ -855,8 +886,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B317A8811FCAE87700292FCE /* HomeViewModel.swift in Sources */,
+				B317A88E1FCB851A00292FCE /* CaregiversTableViewCell.swift in Sources */,
 				B30771461FCA3D45000688D9 /* MainCoordinator.swift in Sources */,
 				B307713D1FCA188C000688D9 /* LoginCoordinator.swift in Sources */,
+				B317A8841FCB022F00292FCE /* UIImage+Utils.swift in Sources */,
 				B38B5BF91FC98D3C00F60337 /* String+Utils.swift in Sources */,
 				B38B5C111FC9AB7B00F60337 /* Services.swift in Sources */,
 				B38B5BFC1FC98D3C00F60337 /* ConsoleLogger.swift in Sources */,
@@ -866,12 +900,14 @@
 				B30771371FCA14A7000688D9 /* BaseViewController.swift in Sources */,
 				B360D2021FC4EDC60091DE3C /* ViewController.swift in Sources */,
 				B30771401FCA18A9000688D9 /* Coordinator.swift in Sources */,
+				B317A8871FCB608A00292FCE /* CaregiversViewModel.swift in Sources */,
 				B38B5BFD1FC98D3C00F60337 /* Logger.swift in Sources */,
 				B3E9AFE51FC9F00200BA13CE /* Constants.swift in Sources */,
 				B360D2031FC4EDC60091DE3C /* AppDelegate.swift in Sources */,
 				B36F7DD21FC61BF10041EC13 /* CloudFunctions.swift in Sources */,
 				B38B5BFA1FC98D3C00F60337 /* UIAlertController+Utils.swift in Sources */,
 				B38B5C0E1FC9A9AA00F60337 /* Types.swift in Sources */,
+				B317A88A1FCB6BAD00292FCE /* Caregiver.swift in Sources */,
 				B36F7DD51FC61D530041EC13 /* FirCloudFunctions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

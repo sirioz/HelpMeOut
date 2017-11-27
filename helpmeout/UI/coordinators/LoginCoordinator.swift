@@ -11,12 +11,18 @@ import UIKit
 import FirebaseAuthUI
 import FirebasePhoneAuthUI
 
+protocol LoginDelegate: class {
+    func didSignInWith(user: User?, error: Error?)
+}
+
 class LoginCoordinator: NSObject, Coordinator {
     
     let window: UIWindow
+    weak var delegate: LoginDelegate?
     
-    init(withWindow: UIWindow) {
+    init(withWindow: UIWindow, delegate: LoginDelegate) {
         self.window = withWindow
+        self.delegate = delegate
     }
     
     func start() {
@@ -44,7 +50,7 @@ extension FUIAuthBaseViewController{
 extension LoginCoordinator: FUIAuthDelegate {
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        MainCoordinator(withWindow: window).start()
+        self.delegate?.didSignInWith(user: user, error: error)
     }
     
 }

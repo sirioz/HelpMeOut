@@ -12,21 +12,33 @@ import UIKit
 class MainCoordinator: Coordinator {
     
     let window: UIWindow
+    let cloudFunctions: CloudFunctions
     
-    init(withWindow: UIWindow) {
+    init(withWindow: UIWindow, cloudFunctions: CloudFunctions) {
         self.window = withWindow
+        self.cloudFunctions = cloudFunctions
     }
     
     func start() {
         
         let tab = UITabBarController()
+        tab.tabBar.tintColor = UIColor.red
+        tab.tabBar.unselectedItemTintColor = UIColor.black
+        tab.tabBar.barTintColor = UIColor.white
         
         let homeVC = HomeViewController.instantiate()
-        let caregiversVC = CaregiversViewController.instantiate()
-        let notificationsVC = NotificationsViewController.instantiate()
+        homeVC.viewModel = HomeViewModel(cloudFunctions: cloudFunctions)
         
-        tab.viewControllers = [homeVC, caregiversVC, notificationsVC]
+        let caregiversVC = CaregiversViewController.instantiate()
+        caregiversVC.viewModel = CaregiversViewModel(cloudFunctions: cloudFunctions)
+        let caregiversNav = UINavigationController(rootViewController: caregiversVC)
+        
+        let notificationsVC = NotificationsViewController.instantiate()
+        let notificationsNav = UINavigationController(rootViewController: notificationsVC)
+        
+        tab.viewControllers = [caregiversNav, homeVC, notificationsNav]
         window.rootViewController = tab
+        tab.selectedIndex = 1
         
     }
     

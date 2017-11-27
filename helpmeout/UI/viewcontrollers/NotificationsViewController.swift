@@ -27,7 +27,7 @@ extension NotificationsViewController {
     
     class func instantiate() -> NotificationsViewController {
         let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "NotificationsViewController") as! NotificationsViewController
-        vc.tabBarItem = UITabBarItem(title: NSLocalizedString("Notifications", comment: ""), image: nil, selectedImage: nil)
+        vc.tabBarItem = UITabBarItem(title: NSLocalizedString("Notifications", comment: ""), image: #imageLiteral(resourceName: "notifications").resizedImageWithinRect(CGSize(width: 30, height: 30)), selectedImage: nil)
         return vc
     }
 }

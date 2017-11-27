@@ -8,6 +8,8 @@
 
 import Foundation
 
+typealias ShortId = String
+
 enum UserType {
     case patient
     case caregiver

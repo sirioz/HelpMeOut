@@ -13,10 +13,15 @@ import Firebase
 protocol CloudFunctions: class {
     
     var currentUser: User? {get}
+    var isAuthenticated: Bool {get}
     
-    func authWithPhone(_ phone: String) -> Promise<String?>
-    func verifySMSCode(verificationID: String, verificationCode: String) -> Promise<User?>
-    func createNewPatient() -> Promise<User>
-    func createNewCaregiver() -> Promise<User>
+    func isCaregiverValid(_ shortId: ShortId, onCompletion: @escaping (Bool) -> Void)
+    func userShortId(uid: String, userType: UserType) -> Promise<ShortId>
+    func createNewUser(uid: String, userType: UserType) -> Promise<ShortId>
+    func caregiversForPatient(patientUid: String, onData: @escaping ([Caregiver]) -> Void)
+    func askForCaregiver(patientUid: String, caregiverShortId: ShortId, onCompletion: @escaping (Error?) -> ())
+    
+    func logout()
+    
     func setAPNS(_ token: String, userType: UserType, forUserId: String)
 }
