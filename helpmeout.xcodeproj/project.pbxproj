@@ -69,6 +69,8 @@
 		B38B5C111FC9AB7B00F60337 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B5C0F1FC9AB7B00F60337 /* Services.swift */; };
 		B3E9AFE41FC9F00200BA13CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9AFE31FC9F00200BA13CE /* Constants.swift */; };
 		B3E9AFE51FC9F00200BA13CE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E9AFE31FC9F00200BA13CE /* Constants.swift */; };
+		B3F419D01FCC151500E75268 /* SosRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F419CF1FCC151500E75268 /* SosRequest.swift */; };
+		B3F419D21FCC17D000E75268 /* NotificationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3F419D11FCC17D000E75268 /* NotificationsViewModel.swift */; };
 		EF18083131891DEDB15D5893 /* Pods_helpmeoutUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98D568E09E2DC93344AE04C6 /* Pods_helpmeoutUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -137,6 +139,8 @@
 		B38B5C0C1FC9A9AA00F60337 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
 		B38B5C0F1FC9AB7B00F60337 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		B3E9AFE31FC9F00200BA13CE /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B3F419CF1FCC151500E75268 /* SosRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SosRequest.swift; sourceTree = "<group>"; };
+		B3F419D11FCC17D000E75268 /* NotificationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewModel.swift; sourceTree = "<group>"; };
 		BCD18209A31C9DE9ACA87F20 /* Pods-helpmeoutUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helpmeoutUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-helpmeoutUITests/Pods-helpmeoutUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D3C48B79E6542D04C109525D /* Pods-helpmeoutUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helpmeoutUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-helpmeoutUITests/Pods-helpmeoutUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D4E7338FA34A53CFB140B2B8 /* Pods-helpmeout-patient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helpmeout-patient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-helpmeout-patient/Pods-helpmeout-patient.debug.xcconfig"; sourceTree = "<group>"; };
@@ -334,6 +338,7 @@
 				B38B5C0C1FC9A9AA00F60337 /* Types.swift */,
 				B3E9AFE31FC9F00200BA13CE /* Constants.swift */,
 				B317A8881FCB6BAD00292FCE /* Caregiver.swift */,
+				B3F419CF1FCC151500E75268 /* SosRequest.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -374,6 +379,7 @@
 			children = (
 				B317A87F1FCAE87700292FCE /* HomeViewModel.swift */,
 				B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */,
+				B3F419D11FCC17D000E75268 /* NotificationsViewModel.swift */,
 			);
 			path = viewmodels;
 			sourceTree = "<group>";
@@ -843,6 +849,7 @@
 				B317A8891FCB6BAD00292FCE /* Caregiver.swift in Sources */,
 				B320DFA11FC4E4B800D430FE /* ViewController.swift in Sources */,
 				B38B5C101FC9AB7B00F60337 /* Services.swift in Sources */,
+				B3F419D21FCC17D000E75268 /* NotificationsViewModel.swift in Sources */,
 				B38B5BEA1FC98BA700F60337 /* Logger.swift in Sources */,
 				B30771481FCA485D000688D9 /* HomeViewController.swift in Sources */,
 				B38B5BF21FC98D3400F60337 /* Log.swift in Sources */,
@@ -857,6 +864,7 @@
 				B3E9AFE41FC9F00200BA13CE /* Constants.swift in Sources */,
 				B38B5BF01FC98CFE00F60337 /* String+Utils.swift in Sources */,
 				B307714D1FCA4A73000688D9 /* NotificationsViewController.swift in Sources */,
+				B3F419D01FCC151500E75268 /* SosRequest.swift in Sources */,
 				B317A8801FCAE87700292FCE /* HomeViewModel.swift in Sources */,
 				B317A8861FCB608A00292FCE /* CaregiversViewModel.swift in Sources */,
 				B36F7DD41FC61D530041EC13 /* FirCloudFunctions.swift in Sources */,

@@ -24,6 +24,14 @@ extension HomeViewModel {
         return cloudFunctions.userShortId(uid: uid, userType: .patient)
     }
     
+    func createSosRequest(onCompletion: @escaping (Error?) -> Void) {
+        guard let uid = cloudFunctions.currentUser?.uid else {
+            onCompletion(CloudError("Invalid patient UID"))
+            return
+        }
+        cloudFunctions.createSosRequest(patientUid: uid, onCompletion: onCompletion)
+    }
+    
     func logout() {
         cloudFunctions.logout()
     }

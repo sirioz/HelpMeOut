@@ -51,3 +51,18 @@ exports.assignPatientId = functions.database.ref('/patients/{patientId}/shortId'
   }
   return false
 })
+
+exports.sendSosRequests = functions.database.ref('/sosRequests/{patientId}/requests/{reqId}').onCreate(event => {
+  let patientId = event.params.patientId
+  if (!event.data.exists()) {
+    return false
+  }
+  if (event.data.val().timeStamp > 0) {
+    console.info("Nothing to do")
+    return false
+  }
+
+  let ts = admin.database.ServerValue.TIMESTAMP
+  return event.data.ref.child('timeStamp').set(ts)
+
+})

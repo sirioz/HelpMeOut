@@ -105,6 +105,33 @@ class FirCloudFunctions: CloudFunctions {
             }
         }
     }
+    
+    func createSosRequest(patientUid: String, onCompletion: @escaping (Error?) -> ()) {
+        
+        // Setting a 0 value gives me a completion block to know when the request completed
+        db.child("/sosRequests/\(patientUid)/requests").childByAutoId().child("timeStamp").setValue(0) { error, _ in
+            if let error = error {
+                onCompletion(error)
+            } else {
+                onCompletion(nil)
+            }
+        }
+    }
+    
+    func sosRequests(patientUid: String, onCompletion: @escaping ([SosRequest], Error?) -> ()) {
+        db.child("/sosRequests/\(patientUid)/requests").observe(.value) { snapshot in
+            if let items = snapshot.children.allObjects as? [DataSnapshot] {
+                let sosRequests: [SosRequest] = items.flatMap {
+                    guard let value = $0.value as? [String: Any] else { return nil }
+                    guard let ts = value["timeStamp"] as? TimeInterval else { return nil }
+                    return SosRequest(unixTs: ts, caregiversShortId: [])
+                }
+                onCompletion(sosRequests, nil)
+            } else {
+                onCompletion([], CloudError("Fetched invalid sos requests"))
+            }
+        }
+    }
 
     func setAPNS(_ token: String, userType: UserType, forUserId: String) {
         guard !token.isEmpty else { return }

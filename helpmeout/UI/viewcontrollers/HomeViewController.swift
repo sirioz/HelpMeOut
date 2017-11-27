@@ -52,7 +52,17 @@ extension HomeViewController {
         viewModel.logout()
     }
     
-    @IBAction func sosButtonPressed(_ sender: Any) {
+    @IBAction func sosButtonPressed(_ sender: UIButton) {
+        sender.isEnabled = false
+        viewModel.createSosRequest { error in
+            sender.isEnabled = true
+            if let error = error {
+                Log.error(error)
+                UIAlertController.showNoAction(on: self, title: NSLocalizedString("Error", comment: ""), message: NSLocalizedString("An error has occurred sending the SOS request.", comment: ""))
+            } else {
+                UIAlertController.showNoAction(on: self, title: NSLocalizedString("Request successful", comment: ""), message: NSLocalizedString("SOS request sent to your caregivers.", comment: ""))
+            }
+        }
     }
 
 }

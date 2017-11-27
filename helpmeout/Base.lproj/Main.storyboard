@@ -54,7 +54,7 @@
                                         </constraints>
                                         <state key="normal" image="sos-big"/>
                                         <connections>
-                                            <action selector="sosButtonPressed:" destination="Hnw-cG-eLP" eventType="touchUpOutside" id="pxw-y8-7PB"/>
+                                            <action selector="sosButtonPressed:" destination="Hnw-cG-eLP" eventType="touchUpInside" id="T1c-ON-vXy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -171,16 +171,63 @@
             <objects>
                 <viewController storyboardIdentifier="NotificationsViewController" id="RQQ-gT-a4G" customClass="NotificationsViewController" customModule="helpmeout_patient" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hkp-pg-mk2">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gzc-ge-okR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="notificationCell" textLabel="KVe-e7-iuz" detailTextLabel="Bgj-Qq-NnX" style="IBUITableViewCellStyleValue1" id="VoN-fW-UT6">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VoN-fW-UT6" id="7K0-kE-h6u">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KVe-e7-iuz">
+                                                    <rect key="frame" x="15" y="11.999999999999998" width="33.333333333333336" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bgj-Qq-NnX">
+                                                    <rect key="frame" x="316" y="11.999999999999998" width="44" height="20.333333333333332"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RQQ-gT-a4G" id="hza-TZ-sYH"/>
+                                    <outlet property="delegate" destination="RQQ-gT-a4G" id="Qkf-w3-kxz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="gzc-ge-okR" firstAttribute="leading" secondItem="45T-T8-EQC" secondAttribute="leading" id="5Xq-VP-cHJ"/>
+                            <constraint firstItem="45T-T8-EQC" firstAttribute="trailing" secondItem="gzc-ge-okR" secondAttribute="trailing" id="ETD-La-jWm"/>
+                            <constraint firstItem="45T-T8-EQC" firstAttribute="bottom" secondItem="gzc-ge-okR" secondAttribute="bottom" id="G2X-fq-gw9"/>
+                            <constraint firstItem="gzc-ge-okR" firstAttribute="top" secondItem="45T-T8-EQC" secondAttribute="top" id="UhD-ti-RSQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="45T-T8-EQC"/>
                     </view>
-                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="gzc-ge-okR" id="6Zj-xm-XcV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aJx-83-wxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1715" y="99"/>
+            <point key="canvasLocation" x="1670" y="109"/>
         </scene>
     </scenes>
     <resources>

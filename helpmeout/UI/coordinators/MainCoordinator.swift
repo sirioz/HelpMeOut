@@ -34,6 +34,7 @@ class MainCoordinator: Coordinator {
         let caregiversNav = UINavigationController(rootViewController: caregiversVC)
         
         let notificationsVC = NotificationsViewController.instantiate()
+        notificationsVC.viewModel = NotificationsViewModel(cloudFunctions: cloudFunctions)
         let notificationsNav = UINavigationController(rootViewController: notificationsVC)
         
         tab.viewControllers = [caregiversNav, homeVC, notificationsNav]
