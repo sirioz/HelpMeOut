@@ -17,15 +17,17 @@ function buildPushPayload(title, body) {
 }
 
 exports.sendCaregiverAcceptedNotification = functions.database.ref('/patients/{patientId}/caregivers/{cgShortId}/waiting').onWrite(event => {
-  let patientId = event.params.patientId;
-  let cgShortId = event.params.cgShortId;
+  let patientId = event.params.patientId
+  let cgShortId = event.params.cgShortId
   if (!event.data.exists()) {
-    return;
+    return false
   }
   if (event.data.val() == false) {
     return admin.database().ref(`/patients/${patientId}/pushToken`).once('value').then(snapshot => {
       let token = snapshot.val()
       let payload = buildPushPayload('Caregiver notification',`Caregiver '${cgShortId}' accepted to take care of you.`)
+      console.info("Sending message to: "+token)
+      console.info("Payload: "+JSON.stringify(payload))
       return admin.messaging().sendToDevice([token], payload).then(response => {
         response.results.forEach((result, index) => {
           const error = result.error;
@@ -35,6 +37,9 @@ exports.sendCaregiverAcceptedNotification = functions.database.ref('/patients/{p
         })
       })
     })
+  } else {
+    console.info("Nothing to do")
+    return false
   }
 
 })

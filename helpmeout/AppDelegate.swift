@@ -84,8 +84,14 @@ extension AppDelegate: MessagingDelegate {
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
         guard let aps = userInfo["aps"] as? NSDictionary else { return }
-        let body = (aps["alert"] as? String) ?? ""
-        let title = NSLocalizedString("notification.title", comment: "")
+        var body = ""
+        var title = NSLocalizedString("notification.title", comment: "")
+        if let content = aps["alert"] as? NSDictionary {
+            body = content["body"] as? String ?? ""
+            title = content["title"] as? String ?? title
+        } else {
+            body = aps["alert"] as? String ?? ""
+        }
         if let vc = window?.rootViewController {
             UIAlertController.showNoAction(on: vc, title: title, message: body)
         }
