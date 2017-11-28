@@ -11,7 +11,7 @@ import Firebase
 import When
 
 class FirCloudFunctions: CloudFunctions {
-    
+
     private let db: DatabaseReference
     private let auth: Auth
     
@@ -52,6 +52,19 @@ class FirCloudFunctions: CloudFunctions {
         return p
     }
     
+    private func userId(fromShortId: ShortId, userType: UserType) -> Promise<String> {
+        let p = Promise<String>()
+        let userPath = userType.dbPath()
+        db.child("\(userPath)").queryOrdered(byChild: "shortId").queryEqual(toValue: fromShortId).observeSingleEvent(of: .value) { snapshot in
+            if let uid = (snapshot.children.allObjects[0] as? DataSnapshot)?.key {
+                p.resolve(uid)
+            } else {
+                p.reject(CloudError("Undefined UID"))
+            }
+        }
+        return p
+    }
+    
     func createNewUser(uid: String, userType: UserType) -> Promise<ShortId> {
         let p = Promise<ShortId>()
         guard !uid.isEmpty else { p.reject(CloudError("Empty UID")); return p }
@@ -80,7 +93,6 @@ class FirCloudFunctions: CloudFunctions {
     }
     
     func caregiversForPatient(patientUid: String, onData:@escaping ([Caregiver]) -> Void) {
-        
         db.child("/patients/\(patientUid)/caregivers").observe(.value) { snapshot in
             if let items = snapshot.children.allObjects as? [DataSnapshot] {
                 let caregivers: [Caregiver] = items.flatMap {
@@ -95,12 +107,49 @@ class FirCloudFunctions: CloudFunctions {
         }
     }
     
-    func askForCaregiver(patientUid: String, caregiverShortId: ShortId, onCompletion:@escaping (Error?) -> Void) {
-        db.child("/patients/\(patientUid)/caregivers/\(caregiverShortId)/waiting").setValue(true) { error, _ in
+    func patientsForCaregiver(caregiverUid: String, onData: @escaping ([Patient]) -> Void) {
+        db.child("/caregivers/\(caregiverUid)/patients").observe(.value) { snapshot in
+            if let items = snapshot.children.allObjects as? [DataSnapshot] {
+                let patients: [Patient] = items.flatMap {
+                    let shortId = $0.key
+                    guard let value = $0.value as? [String: Any] else { return nil }
+                    return Patient(shortId: shortId, waiting: value["waiting"] as! Bool)
+                }
+                onData(patients)
+            } else {
+                onData([])
+            }
+        }
+    }
+    
+    func confirmPatient(patientShortId: ShortId, to caregiverUid: String, onCompletion: @escaping (Error?) -> Void) {
+        db.child("/caregivers/\(caregiverUid)/patients/\(patientShortId)/waiting").setValue(false) { [unowned self] error, _ in
             if let error = error {
                 onCompletion(error)
-            } else {
-                onCompletion(nil)
+                return
+            }
+            when(self.userId(fromShortId: patientShortId, userType: .patient),
+                 self.userShortId(uid: caregiverUid, userType: .caregiver)
+                ).done{ patientUid, caregiverShortId in
+                    self.db.child("/patients/\(patientUid)/caregivers/\(caregiverShortId)/waiting").setValue(false) { error, _ in
+                        onCompletion(error)
+                    }
+            }
+        }
+    }
+    
+    func askForCaregiver(patientUid: String, caregiverShortId: ShortId, onCompletion:@escaping (Error?) -> Void) {
+        db.child("/patients/\(patientUid)/caregivers/\(caregiverShortId)/waiting").setValue(true) { [unowned self] error, _ in
+            if let error = error {
+                onCompletion(error)
+                return
+            }
+            when(self.userId(fromShortId: caregiverShortId, userType: .caregiver),
+                 self.userShortId(uid: patientUid, userType: .patient)
+                ).done{ caregiverUid, patientShortId in
+                    self.db.child("/caregivers/\(caregiverUid)/patients/\(patientShortId)/waiting").setValue(true) { error, _ in
+                        onCompletion(error)
+                    }
             }
         }
     }

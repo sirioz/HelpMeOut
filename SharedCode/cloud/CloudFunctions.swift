@@ -19,6 +19,8 @@ protocol CloudFunctions: class {
     func userShortId(uid: String, userType: UserType) -> Promise<ShortId>
     func createNewUser(uid: String, userType: UserType) -> Promise<ShortId>
     func caregiversForPatient(patientUid: String, onData: @escaping ([Caregiver]) -> Void)
+    func patientsForCaregiver(caregiverUid: String, onData: @escaping ([Patient]) -> Void)
+    func confirmPatient(patientShortId: ShortId, to caregiverUid: String, onCompletion: @escaping (Error?) -> Void)
     func askForCaregiver(patientUid: String, caregiverShortId: ShortId, onCompletion: @escaping (Error?) -> Void)
     func createSosRequest(patientUid: String, onCompletion: @escaping (Error?) -> Void)
     func sosRequests(patientUid: String, onCompletion: @escaping ([SosRequest], Error?) -> Void)

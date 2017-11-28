@@ -16,6 +16,35 @@ function buildPushPayload(title, body) {
   }
 }
 
+exports.sendCaregiverRequestNotification = functions.database.ref('/patients/{patientId}/caregivers/{cgShortId}').onCreate(event => {
+  let cgShortId = event.params.cgShortId
+  return event.data.ref.parent.parent.child('shortId').once('value').then(snapshot => {
+    let patientShortId = snapshot.val()
+    return admin.database().ref('/caregivers').orderByChild('shortId').equalTo(cgShortId).once('value').then(snapshot => {
+      var token = null
+      snapshot.forEach(child => {
+        token = child.val().pushToken
+        return true
+      })
+      if (!token) {
+        console.error("PushToken not found")
+        return false
+      }
+      let payload = buildPushPayload('Patient request',`Patient '${patientShortId}' asked to add you.`)
+      console.info("Sending message to: "+token)
+      console.info("Payload: "+JSON.stringify(payload))
+      return admin.messaging().sendToDevice([token], payload).then(response => {
+        response.results.forEach((result, index) => {
+          const error = result.error;
+          if (error) {
+            console.error('Failure sending notification to', tokens[index], error);
+          }
+        })
+      })
+    })
+  })
+})
+
 exports.sendCaregiverAcceptedNotification = functions.database.ref('/patients/{patientId}/caregivers/{cgShortId}/waiting').onWrite(event => {
   let patientId = event.params.patientId
   let cgShortId = event.params.cgShortId

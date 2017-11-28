@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		6C9E0B0FB1E73EC445B1B54F /* Pods_helpmeoutTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 149A09B0074E7E4B56A867B2 /* Pods_helpmeoutTests.framework */; };
 		6D93FCE4B304F4BC38105035 /* Pods_helpmeout_patient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFF90D417ECD2D75BD02F605 /* Pods_helpmeout_patient.framework */; };
+		B30555C01FCCE82A00819734 /* Patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30555BF1FCCE82A00819734 /* Patient.swift */; };
 		B30771361FCA14A7000688D9 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30771351FCA14A7000688D9 /* BaseViewController.swift */; };
 		B307713C1FCA188C000688D9 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307713B1FCA188C000688D9 /* LoginCoordinator.swift */; };
 		B307713F1FCA18A9000688D9 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B307713E1FCA18A9000688D9 /* Coordinator.swift */; };
@@ -70,6 +71,7 @@
 		675B1A9DF2139B27AAD4325B /* Pods_helpmeout_caregiver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helpmeout_caregiver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		698734915070E2751BE2255D /* Pods-helpmeoutTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-helpmeoutTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-helpmeoutTests/Pods-helpmeoutTests.debug.xcconfig"; sourceTree = "<group>"; };
 		98D568E09E2DC93344AE04C6 /* Pods_helpmeoutUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_helpmeoutUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B30555BF1FCCE82A00819734 /* Patient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Patient.swift; sourceTree = "<group>"; };
 		B30771351FCA14A7000688D9 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B307713B1FCA188C000688D9 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		B307713E1FCA18A9000688D9 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				B38B5C0C1FC9A9AA00F60337 /* Types.swift */,
 				B317A8881FCB6BAD00292FCE /* Caregiver.swift */,
+				B30555BF1FCCE82A00819734 /* Patient.swift */,
 				B3F419CF1FCC151500E75268 /* SosRequest.swift */,
 			);
 			name = model;
@@ -706,6 +709,7 @@
 			files = (
 				B30771451FCA3D45000688D9 /* MainCoordinator.swift in Sources */,
 				B307713C1FCA188C000688D9 /* LoginCoordinator.swift in Sources */,
+				B30555C01FCCE82A00819734 /* Patient.swift in Sources */,
 				B317A8891FCB6BAD00292FCE /* Caregiver.swift in Sources */,
 				B38B5C101FC9AB7B00F60337 /* Services.swift in Sources */,
 				B3F419D21FCC17D000E75268 /* NotificationsViewModel.swift in Sources */,
