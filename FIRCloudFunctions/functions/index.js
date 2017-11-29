@@ -138,7 +138,12 @@ exports.sendSosRequests = functions.database.ref('/patients/{patientId}/sosReque
           admin.database().ref(`/caregivers/${caregiver.uId}/sosRequests`).push({shortId: patientShortId, timeStamp: ts})
           
           // Send notification to caregiver
-          return admin.messaging().sendToDevice([caregiver.pushToken], payload)  
+          let token = caregiver.pushToken
+          if (!token) {
+            console.log(`Caregiver: '${caregiver.uId}' has no valid pushToken.`)
+            return false
+          }
+          return admin.messaging().sendToDevice([token], payload)  
         })
       })
     })
