@@ -9,7 +9,12 @@ The project is composed by:
 - Enter into the folder apps (helpmeout-caregiver, helpmeout-patients)
 - pod init
 - Open the \*.xcworkspace in XCode and compile. To run the apps on a physical device you'll have to provide some valid provisioning profiles with **push notifications option enabled**.
-- 
+
+## Push notifications
+In order to have push notifications working you need to get - from Apple Developer - an APNs key (Section: Keys) for each app. These keys will then be used on the Firebase console too.
+
+## Firebase configuration
+
 
 ## Testing
 Testing the app requires to launch a local Firebase server.
