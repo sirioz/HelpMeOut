@@ -48,6 +48,7 @@ The apps are built on MVVM+C architecture. The choice is a perfect balance betwe
 Since the 2 apps are very similar, I decided to share some code but to keep them as 2 separate projects, in order to preserve a future indipendent scalability.
 
 TODO: Put the shared code in a POD.
+
 On the backend the only thing to notice is the users ID number generator: I decided for a shortID algorithm,easy to generate maybe not so easy for users to type.
 
 TODO: use a synchronized sequence number generator.
