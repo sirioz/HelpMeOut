@@ -1,10 +1,22 @@
 # HelpMeOut - The project
+
+HelpMeOut is a simple P.O.C to show how two apps can communicate in realtime using Firebase as a backend.
+The apps are Universal Apps and can run both on iPhone (yes, iPhone X too) and iPad, targeting iOS10.
+
 The project is composed by:
 
 - 1 Caregiver app
 - 1 Patient app
 - Firebase cloud functions
-- The apps are Universal Apps and can run both on iPhone (yes, iPhone X too) and iPad, targeting iOS10.
+
+Both the Patients and the Caregivers can authenticate in the apps using phone number or email.
+
+Patients can add one or more caregivers and wait for their approval.
+
+Caregivers receive the patients' requests and can accept them or not.
+
+Patients can then send SOS request to they caregivers (those that accepted the request).
+
 
 ## Compiling
 - Enter into the folder apps (`helpmeout-caregiver`, `helpmeout-patients`).
