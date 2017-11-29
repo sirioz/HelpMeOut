@@ -1,0 +1,30 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '10.0'
+use_frameworks!
+
+def common_pods
+    pod 'SwiftLint'
+    pod 'Firebase/Core'
+    pod 'Firebase/Database'
+    pod 'Firebase/Auth'
+    pod 'Firebase/Messaging'
+    pod 'FirebaseUI/Auth'
+    pod 'FirebaseUI/Phone'
+    pod 'When'
+    pod 'PKHUD', '~> 5.0'
+    
+end
+
+target 'helpmeout-caregiver' do
+    common_pods
+
+    target 'helpmeoutTests' do
+        inherit! :search_paths
+	end
+
+	target 'helpmeoutUITests' do
+	    inherit! :search_paths
+	end
+    
+end
+
