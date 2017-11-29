@@ -14,7 +14,12 @@ The project is composed by:
 In order to have push notifications working you need to get - from Apple Developer - an APNs key (Section: Keys) for each app. These keys will then be used on the Firebase console too.
 
 ## Firebase configuration
-
+Configuring Firebase takes some time...
+- Open the console (https://console.firebase.google.com) and create a new project, give it a name (HelpMeOut)
+- Add your iOS apps, using 2 different bundleId (E.G: com...-patient, com...-caregiver).
+- For each app, download the configuration .plist. This configuration must then be added to your xcode project.
+- For each app, in section *Cloud Messaging*, add the APNs Key you downloaded before. This will link Firebase to your apps and will let you receive push notifications
+- **Authentication**. Go to Authentication/Methods and enable *Email* and *Phone*. These are the 2 only methods available in the apps.
 
 ## Testing
 Testing the app requires to launch a local Firebase server.
@@ -31,4 +36,4 @@ NOTE: for some weird (documented) reasons the Firebase local server works only i
 - Testing approach, the simplest possible. Write & read back on a local db, recreating the db each time.
 - TODO: better testing approach: mock all the Firebase calls to get more fine control and not rely on a phisical db.
 
-Documentation still in progres...
+# Documentation still in progres...
