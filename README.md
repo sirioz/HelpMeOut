@@ -1,4 +1,4 @@
-## HelpMeOut - The project
+# HelpMeOut - The project
 The project is composed by:
 
 - 1 Caregiver app
@@ -21,18 +21,18 @@ Configuring Firebase takes some time...
 - For each app, in section *Cloud Messaging*, add the APNs Key you downloaded before. This will link Firebase to your apps and will let you receive push notifications
 - **Authentication**. Go to Authentication/Methods and enable *Email* and *Phone*. These are the 2 only methods available in the apps.
 - **Database**. Create a new Realtime Database under *Database* section.
-- Rules. Just to speed up queries there are 2 simple indexes to apply on the database itself. You can go to folder FIRCloudFunctions and copy them from the *firebase-rules.json* file. BTW, they are not mandatory.
-- **CloudFunctions**. In order to trigger push notifications and to generate IDs there are some functions to upload to the database. Go to folder FIRCloudFunctions/functions and deploy them with *npm install*, *firebase deploy*.
+- Rules. Just to speed up queries there are 2 simple indexes to apply on the database itself. You can go to folder FIRCloudFunctions and copy them from the `firebase-rules.json` file. BTW, they are not mandatory.
+- **CloudFunctions**. In order to trigger push notifications and to generate IDs there are some functions to upload to the database. Go to folder `FIRCloudFunctions/functions` and deploy them with `npm install`, `firebase deploy`.
 
 ## Testing
 Testing the app requires to launch a local Firebase server.
-- Cd into FIRCloudFunctions/test-server folder
-- npm install
-- npm start
+- Cd into `FIRCloudFunctions/test-server` folder
+- `npm install`
+- `npm start`
 
-NOTE: for some weird (documented) reasons the Firebase local server works only if you add the local address to /etc/hosts
+NOTE: for some weird (documented) reasons the Firebase local server works only if you add the local address to `/etc/hosts`
 
-127.0.0.1 test.firebase.localhost
+`127.0.0.1 test.firebase.localhost`
 
 ## Notes on testing
 - Testing a realtime DB is not simple, you have to deal with async callbacks and there could be unexpected side-effects. What I did here is to test just some methods. TODO: Test ALL cloud & model methods.
