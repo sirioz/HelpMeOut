@@ -4,9 +4,10 @@ The project is composed by:
 - 1 Caregiver app
 - 1 Patient app
 - Firebase cloud functions
+- The apps are Universal Apps and can run both on iPhone (yes, iPhone X too) and iPad, targeting iOS10.
 
 ## Compiling
-- Enter into the folder apps (helpmeout-caregiver, helpmeout-patients).
+- Enter into the folder apps (`helpmeout-caregiver`, `helpmeout-patients`).
 - `pod init`
 - Open the `\*.xcworkspace` in XCode and compile. To run the apps on a physical device you'll have to provide some valid provisioning profiles with **push notifications option enabled**.
 
