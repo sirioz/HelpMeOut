@@ -10,10 +10,10 @@ import Foundation
 
 struct SosRequest {
     let date: Date
-    let caregiversShortId: [ShortId]
+    var shortId: ShortId?
     
-    init(unixTs: TimeInterval, caregiversShortId: [ShortId]) {
+    init(unixTs: TimeInterval, shortId: ShortId? = nil) {
         self.date = Date(timeIntervalSince1970: unixTs / 1000)
-        self.caregiversShortId = caregiversShortId
+        self.shortId = shortId
     }
 }

@@ -27,7 +27,6 @@
 		B320DFA61FC4E4B800D430FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA51FC4E4B800D430FE /* Assets.xcassets */; };
 		B320DFA91FC4E4B800D430FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA71FC4E4B800D430FE /* LaunchScreen.storyboard */; };
 		B320DFB41FC4E4B800D430FE /* HelpmeoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DFB31FC4E4B800D430FE /* HelpmeoutTests.swift */; };
-		B320DFBF1FC4E4B800D430FE /* HelpmeoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DFBE1FC4E4B800D430FE /* HelpmeoutUITests.swift */; };
 		B360D2131FC4EE920091DE3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B360D2121FC4EE920091DE3C /* GoogleService-Info.plist */; };
 		B36F7DD11FC61BF10041EC13 /* CloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F7DD01FC61BF10041EC13 /* CloudFunctions.swift */; };
 		B36F7DD41FC61D530041EC13 /* FirCloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F7DD31FC61D530041EC13 /* FirCloudFunctions.swift */; };
@@ -97,7 +96,6 @@
 		B320DFC01FC4E4B800D430FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B360D1FC1FC4E9CE0091DE3C /* helpmeout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = helpmeout.entitlements; sourceTree = "<group>"; };
 		B360D2121FC4EE920091DE3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B360D2141FC4EEC10091DE3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B36F7DD01FC61BF10041EC13 /* CloudFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctions.swift; sourceTree = "<group>"; };
 		B36F7DD31FC61D530041EC13 /* FirCloudFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirCloudFunctions.swift; sourceTree = "<group>"; };
 		B38B5BE71FC98BA500F60337 /* ConsoleLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleLogger.swift; sourceTree = "<group>"; };
@@ -213,7 +211,6 @@
 			isa = PBXGroup;
 			children = (
 				B3E9AFE71FC9F1AD00BA13CE /* UI */,
-				B3E9AFE61FC9F19000BA13CE /* config */,
 				B38B5C0B1FC9A99900F60337 /* model */,
 				B38B5BFF1FC98D9B00F60337 /* logger */,
 				B38B5BE61FC9899500F60337 /* helpers */,
@@ -247,14 +244,6 @@
 				B320DFC01FC4E4B800D430FE /* Info.plist */,
 			);
 			path = helpmeoutUITests;
-			sourceTree = "<group>";
-		};
-		B360D2171FC4F2120091DE3C /* caregiver */ = {
-			isa = PBXGroup;
-			children = (
-				B360D2141FC4EEC10091DE3C /* GoogleService-Info.plist */,
-			);
-			path = caregiver;
 			sourceTree = "<group>";
 		};
 		B36F7DCF1FC61BCD0041EC13 /* cloud */ = {
@@ -300,14 +289,6 @@
 			);
 			name = model;
 			path = ../../SharedCode/model;
-			sourceTree = "<group>";
-		};
-		B3E9AFE61FC9F19000BA13CE /* config */ = {
-			isa = PBXGroup;
-			children = (
-				B360D2171FC4F2120091DE3C /* caregiver */,
-			);
-			path = config;
 			sourceTree = "<group>";
 		};
 		B3E9AFE71FC9F1AD00BA13CE /* UI */ = {
@@ -644,8 +625,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-helpmeout-patient/Pods-helpmeout-patient-resources.sh",
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebaseAuthUI.bundle,
-				$PODS_CONFIGURATION_BUILD_DIR/FirebaseUI/FirebasePhoneAuthUI.bundle,
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -749,7 +730,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B320DFBF1FC4E4B800D430FE /* HelpmeoutUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -914,7 +894,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KGTMK77GN;
-				INFOPLIST_FILE = helpmeout/config/patient/Info.plist;
+				INFOPLIST_FILE = helpmeout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
@@ -935,7 +915,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4KGTMK77GN;
-				INFOPLIST_FILE = helpmeout/config/patient/Info.plist;
+				INFOPLIST_FILE = helpmeout/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";

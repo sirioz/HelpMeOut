@@ -22,7 +22,7 @@ extension NotificationsViewModel {
     
     func fetchSosRequests(onData: @escaping ([SosRequest]) -> Void) {
         if let uid = self.cloudFunctions.currentUser?.uid {
-            self.cloudFunctions.sosRequests(patientUid: uid) { sosRequests, error in
+            self.cloudFunctions.sosRequests(uId: uid, userType: Constants.userType) { sosRequests, error in
                 if let error = error {
                     Log.error(error)
                     onData([])

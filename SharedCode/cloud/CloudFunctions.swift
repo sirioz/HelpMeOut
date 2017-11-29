@@ -12,10 +12,13 @@ import Firebase
 
 protocol CloudFunctions: class {
     
+    init(withDb: DatabaseReference, auth: Auth?)
+    
     var currentUser: User? {get}
     var isAuthenticated: Bool {get}
     
     func isCaregiverValid(_ shortId: ShortId, onCompletion: @escaping (Bool) -> Void)
+    func userShortId(uid: String, userType: UserType, onData: @escaping (ShortId?) -> Void)
     func userShortId(uid: String, userType: UserType) -> Promise<ShortId>
     func createNewUser(uid: String, userType: UserType) -> Promise<ShortId>
     func caregiversForPatient(patientUid: String, onData: @escaping ([Caregiver]) -> Void)
@@ -23,7 +26,7 @@ protocol CloudFunctions: class {
     func confirmPatient(patientShortId: ShortId, to caregiverUid: String, onCompletion: @escaping (Error?) -> Void)
     func askForCaregiver(patientUid: String, caregiverShortId: ShortId, onCompletion: @escaping (Error?) -> Void)
     func createSosRequest(patientUid: String, onCompletion: @escaping (Error?) -> Void)
-    func sosRequests(patientUid: String, onCompletion: @escaping ([SosRequest], Error?) -> Void)
+    func sosRequests(uId: String, userType: UserType, onCompletion: @escaping ([SosRequest], Error?) -> Void)
     
     func logout()
     

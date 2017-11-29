@@ -78,6 +78,8 @@ extension NotificationsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId) ?? UITableViewCell()
         if let sosRequest = viewModel.sosRequests?[indexPath.row] {
             cell.textLabel?.text = NSLocalizedString("Sos request", comment: "")
+            cell.detailTextLabel?.font = UIFont.systemFont(ofSize: 14.0)
+            cell.detailTextLabel?.textColor = UIColor.gray
             cell.detailTextLabel?.text = tsFormatter.string(from: sosRequest.date)
         }
         

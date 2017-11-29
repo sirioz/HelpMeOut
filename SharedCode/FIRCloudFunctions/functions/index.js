@@ -16,6 +16,27 @@ function buildPushPayload(title, body) {
   }
 }
 
+function caregiversForPatient(patientShortId) {
+  return new Promise( (resolve, reject) => {
+    admin.database().ref('/caregivers').orderByChild(`patients/${patientShortId}`).on('value', snapshot => {
+      var caregivers = []      
+      snapshot.forEach(child => {
+        let uId = child.key
+        let pushToken = child.val().pushToken
+        caregivers.push({uId, pushToken})
+      })
+      resolve(caregivers)
+    })
+  })
+}
+
+// exports.test = functions.https.onRequest((req, res) => {
+//   let shortId = req.query.shortId
+//   caregiversForPatient(shortId).then(caregivers => {
+//     res.send(caregivers)
+//   })
+// })
+
 exports.sendCaregiverRequestNotification = functions.database.ref('/patients/{patientId}/caregivers/{cgShortId}').onCreate(event => {
   let cgShortId = event.params.cgShortId
   return event.data.ref.parent.parent.child('shortId').once('value').then(snapshot => {
@@ -54,6 +75,7 @@ exports.sendCaregiverAcceptedNotification = functions.database.ref('/patients/{p
   if (event.data.val() == false) {
     return admin.database().ref(`/patients/${patientId}/pushToken`).once('value').then(snapshot => {
       let token = snapshot.val()
+      // Send notification
       let payload = buildPushPayload('Caregiver notification',`Caregiver '${cgShortId}' accepted to take care of you.`)
       console.info("Sending message to: "+token)
       console.info("Payload: "+JSON.stringify(payload))
@@ -85,7 +107,7 @@ exports.assignCaregiverId = functions.database.ref('/caregivers/{uId}').onCreate
   return event.data.ref.child('shortId').set(shortId)
 })
 
-exports.sendSosRequests = functions.database.ref('/sosRequests/{patientId}/requests/{reqId}').onCreate(event => {
+exports.sendSosRequests = functions.database.ref('/patients/{patientId}/sosRequests/{reqId}').onCreate(event => {
   let patientId = event.params.patientId
   if (!event.data.exists()) {
     return false
@@ -96,6 +118,21 @@ exports.sendSosRequests = functions.database.ref('/sosRequests/{patientId}/reque
   }
 
   let ts = admin.database.ServerValue.TIMESTAMP
-  return event.data.ref.child('timeStamp').set(ts)
+  return event.data.ref.child('timeStamp').set(ts).then(() => {
+    return event.data.ref.parent.parent.child('shortId').once('value').then(snapshot => {
+      let patientShortId = snapshot.val()
+      let payload = buildPushPayload('SOS Request',`Patient '${patientShortId}' needs your help!`)
+      console.info("Payload: "+JSON.stringify(payload))
+      return caregiversForPatient(patientShortId).then(caregivers => {
+        caregivers.forEach(caregiver => {
+          // Add to caregiver's requests
+          admin.database().ref(`/caregivers/${caregiver.uId}/sosRequests`).push({shortId: patientShortId, timeStamp: ts})
+          
+          // Send notification to caregiver
+          return admin.messaging().sendToDevice([caregiver.pushToken], payload)  
+        })
+      })
+    })
+  })
 
 })

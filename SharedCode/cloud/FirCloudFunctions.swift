@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import When
 
-class FirCloudFunctions: CloudFunctions {
+final class FirCloudFunctions: CloudFunctions {
 
     private let db: DatabaseReference
     private let auth: Auth
@@ -20,9 +20,9 @@ class FirCloudFunctions: CloudFunctions {
         self.auth = Auth.auth()
     }
     
-    init(withDb: DatabaseReference, auth: Auth) {
+    init(withDb: DatabaseReference, auth: Auth?) {
         self.db = withDb
-        self.auth = auth
+        self.auth = auth ?? Auth.auth()
     }
     
     var currentUser: User? {
@@ -34,19 +34,27 @@ class FirCloudFunctions: CloudFunctions {
     
     func isCaregiverValid(_ shortId: ShortId, onCompletion: @escaping (Bool) -> Void) {
         db.child("caregivers").queryOrdered(byChild: "shortId").queryEqual(toValue: shortId).observeSingleEvent(of: .value) { snapshot in
-            onCompletion(snapshot.value != nil)
+            onCompletion(snapshot.exists())
+        }
+    }
+    
+    func userShortId(uid: String, userType: UserType, onData: @escaping (ShortId?) -> Void) {
+        guard !uid.isEmpty else { onData(nil); return }
+        let userPath = userType.dbPath()
+        db.child("\(userPath)/\(uid)/shortId").observe(.value) { snapshot in
+            let shortId = snapshot.value as? String
+            onData(shortId)
         }
     }
     
     func userShortId(uid: String, userType: UserType) -> Promise<ShortId> {
         let p = Promise<ShortId>()
         guard !uid.isEmpty else { p.reject(CloudError("Empty UID")); return p }
-        let userPath = userType.dbPath()
-        db.child("\(userPath)/\(uid)/shortId").observeSingleEvent(of: .value) { snapshot in
-            if let shortId = snapshot.value as? String {
+        userShortId(uid: uid, userType: userType) { shortId in
+            if let shortId = shortId {
                 p.resolve(shortId)
             } else {
-                p.reject(CloudError("Undefined shortId"))
+                p.reject(CloudError("Undefined ShortId"))
             }
         }
         return p
@@ -76,16 +84,16 @@ class FirCloudFunctions: CloudFunctions {
                     if let error = error {
                         p.reject(error)
                     } else {
-                        self.userShortId(uid: uid, userType: userType).then({ shortId in
-                            p.resolve(shortId)
-                        })
+                        self.userShortId(uid: uid, userType: userType) { shortId in
+                            p.resolve(shortId ?? "")
+                        }
                     }
                 }
             } else { // Existing user
                 Log.debug("Existing user")
-                self.userShortId(uid: uid, userType: userType).then({ shortId in
-                    p.resolve(shortId)
-                })
+                self.userShortId(uid: uid, userType: userType) { shortId in
+                    p.resolve(shortId ?? "")
+                }
             }
         }
         
@@ -157,7 +165,7 @@ class FirCloudFunctions: CloudFunctions {
     func createSosRequest(patientUid: String, onCompletion: @escaping (Error?) -> Void) {
         
         // Setting a 0 value gives me a completion block to know when the request completed
-        db.child("/sosRequests/\(patientUid)/requests").childByAutoId().child("timeStamp").setValue(0) { error, _ in
+        db.child("/patients/\(patientUid)/sosRequests").childByAutoId().child("timeStamp").setValue(0) { error, _ in
             if let error = error {
                 onCompletion(error)
             } else {
@@ -166,13 +174,15 @@ class FirCloudFunctions: CloudFunctions {
         }
     }
     
-    func sosRequests(patientUid: String, onCompletion: @escaping ([SosRequest], Error?) -> Void) {
-        db.child("/sosRequests/\(patientUid)/requests").observe(.value) { snapshot in
+    func sosRequests(uId: String, userType: UserType, onCompletion: @escaping ([SosRequest], Error?) -> Void) {
+        let userPath = userType.dbPath()
+        db.child("\(userPath)/\(uId)/sosRequests").observe(.value) { snapshot in
             if let items = snapshot.children.allObjects as? [DataSnapshot] {
                 let sosRequests: [SosRequest] = items.flatMap {
                     guard let value = $0.value as? [String: Any] else { return nil }
                     guard let ts = value["timeStamp"] as? TimeInterval else { return nil }
-                    return SosRequest(unixTs: ts, caregiversShortId: [])
+                    let shortId = value["shortId"] as? ShortId
+                    return SosRequest(unixTs: ts, shortId: shortId)
                 }
                 onCompletion(sosRequests, nil)
             } else {
@@ -194,7 +204,4 @@ class FirCloudFunctions: CloudFunctions {
     
 }
 
-// MARK: Private methods
-extension FirCloudFunctions {
-    
-}
+

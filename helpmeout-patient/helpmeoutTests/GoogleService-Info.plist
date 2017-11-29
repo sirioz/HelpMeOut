@@ -23,18 +23,18 @@
 	<key>STORAGE_BUCKET</key>
 	<string>helpmeout-802c9.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:917650007466:ios:2999ba359cf6d325</string>
 	<key>DATABASE_URL</key>
-	<string>https://helpmeout-802c9.firebaseio.com</string>
+	<string>ws://test.firebase.localhost:5000</string>
 </dict>
 </plist>
