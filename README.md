@@ -1,4 +1,10 @@
-# HelpMeOut - The project
+<h1 align="center">
+  HelpMeOut 👩🏻‍⚕️
+</h1>
+
+<br />
+
+# The project
 
 HelpMeOut is a simple P.O.C to show how two apps can communicate in realtime using Firebase as a backend.
 The apps are Universal Apps and can run both on iPhone (yes, iPhone X too) and iPad, targeting iOS10.
