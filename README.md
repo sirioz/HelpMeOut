@@ -16,4 +16,9 @@ NOTE: for some weird (documented) reasons the Firebase local server works only i
 
 127.0.0.1 test.firebase.localhost
 
-Documentation is in progres...
+# Notes on testing
+- Testing a realtime DB is not simple, you have to deal with async callbacks and there could be unexpected side-effects. What I did here is to test just some methods. TODO: Test ALL cloud & model methods.
+- Testing approach, the simplest possible. Write & read back on a local db, recreating the db each time.
+- TODO: better testing approach: mock all the Firebase calls to get more fine control and not rely on a phisical db.
+
+Documentation still in progres...
