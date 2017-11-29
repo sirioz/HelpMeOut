@@ -40,7 +40,7 @@ Configuring Firebase takes some time...
 - For each app, in section *Cloud Messaging*, add the APNs Key you downloaded before. This will link Firebase to your apps and will let you send and receive push notifications.
 - **Authentication**. Go to Authentication/Methods and enable *Email* and *Phone*. These are the 2 only methods available in the apps.
 - **Database**. Create a new Realtime Database under *Database* section.
-- Rules. Just to speed up queries there are 2 simple indexes to apply on the database itself. You can go to folder FIRCloudFunctions and copy them from the `firebase-rules.json` file. BTW, they are not mandatory.
+- Rules. Just to speed up queries there are 2 simple indexes to apply on some database paths. You can go to folder `FIRCloudFunctions` and copy them from the `firebase-rules.json` file. BTW, they are not mandatory.
 - **CloudFunctions**. In order to trigger push notifications and to generate IDs there are some functions to upload to the database. Go to folder `FIRCloudFunctions/functions` and deploy them with `npm install`, `firebase deploy`.
 
 ## Architecture
