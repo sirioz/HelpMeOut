@@ -22,11 +22,15 @@
 		B317A8861FCB608A00292FCE /* CaregiversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */; };
 		B317A8891FCB6BAD00292FCE /* Caregiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A8881FCB6BAD00292FCE /* Caregiver.swift */; };
 		B317A88D1FCB851A00292FCE /* CaregiversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B317A88B1FCB851A00292FCE /* CaregiversTableViewCell.swift */; };
+		B31FA78B1FCEB0490081FBF4 /* NotificationsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31FA7891FCEB0490081FBF4 /* NotificationsHelper.swift */; };
+		B31FA78C1FCEB04D0081FBF4 /* MockHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31FA7881FCEB0490081FBF4 /* MockHelper.swift */; };
+		B31FA7971FCEB4F60081FBF4 /* simple.json in Resources */ = {isa = PBXBuildFile; fileRef = B31FA7951FCEB4F60081FBF4 /* simple.json */; };
+		B31FA7981FCEB4F60081FBF4 /* CloudFunctionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31FA7961FCEB4F60081FBF4 /* CloudFunctionsTests.swift */; };
+		B31FA79A1FCEB6620081FBF4 /* TEST-GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B31FA7991FCEB6620081FBF4 /* TEST-GoogleService-Info.plist */; };
 		B320DF9F1FC4E4B800D430FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DF9E1FC4E4B800D430FE /* AppDelegate.swift */; };
 		B320DFA41FC4E4B800D430FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA21FC4E4B800D430FE /* Main.storyboard */; };
 		B320DFA61FC4E4B800D430FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA51FC4E4B800D430FE /* Assets.xcassets */; };
 		B320DFA91FC4E4B800D430FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA71FC4E4B800D430FE /* LaunchScreen.storyboard */; };
-		B320DFB41FC4E4B800D430FE /* HelpmeoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B320DFB31FC4E4B800D430FE /* HelpmeoutTests.swift */; };
 		B360D2131FC4EE920091DE3C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B360D2121FC4EE920091DE3C /* GoogleService-Info.plist */; };
 		B36F7DD11FC61BF10041EC13 /* CloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F7DD01FC61BF10041EC13 /* CloudFunctions.swift */; };
 		B36F7DD41FC61D530041EC13 /* FirCloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F7DD31FC61D530041EC13 /* FirCloudFunctions.swift */; };
@@ -83,13 +87,17 @@
 		B317A8851FCB608A00292FCE /* CaregiversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiversViewModel.swift; sourceTree = "<group>"; };
 		B317A8881FCB6BAD00292FCE /* Caregiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caregiver.swift; sourceTree = "<group>"; };
 		B317A88B1FCB851A00292FCE /* CaregiversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaregiversTableViewCell.swift; sourceTree = "<group>"; };
+		B31FA7881FCEB0490081FBF4 /* MockHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockHelper.swift; sourceTree = "<group>"; };
+		B31FA7891FCEB0490081FBF4 /* NotificationsHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsHelper.swift; sourceTree = "<group>"; };
+		B31FA7951FCEB4F60081FBF4 /* simple.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = simple.json; sourceTree = "<group>"; };
+		B31FA7961FCEB4F60081FBF4 /* CloudFunctionsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudFunctionsTests.swift; sourceTree = "<group>"; };
+		B31FA7991FCEB6620081FBF4 /* TEST-GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TEST-GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B320DF9B1FC4E4B800D430FE /* helpmeout-patient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "helpmeout-patient.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B320DF9E1FC4E4B800D430FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B320DFA31FC4E4B800D430FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B320DFA51FC4E4B800D430FE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B320DFA81FC4E4B800D430FE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B320DFAF1FC4E4B800D430FE /* helpmeoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = helpmeoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B320DFB31FC4E4B800D430FE /* HelpmeoutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpmeoutTests.swift; sourceTree = "<group>"; };
 		B320DFB51FC4E4B800D430FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B320DFBA1FC4E4B800D430FE /* helpmeoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = helpmeoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B320DFBE1FC4E4B800D430FE /* HelpmeoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpmeoutUITests.swift; sourceTree = "<group>"; };
@@ -185,6 +193,25 @@
 			path = tableviewcells;
 			sourceTree = "<group>";
 		};
+		B31FA7931FCEB4F60081FBF4 /* commonTests */ = {
+			isa = PBXGroup;
+			children = (
+				B31FA7941FCEB4F60081FBF4 /* mocks */,
+				B31FA7991FCEB6620081FBF4 /* TEST-GoogleService-Info.plist */,
+				B31FA7961FCEB4F60081FBF4 /* CloudFunctionsTests.swift */,
+			);
+			name = commonTests;
+			path = ../../SharedCode/commonTests;
+			sourceTree = "<group>";
+		};
+		B31FA7941FCEB4F60081FBF4 /* mocks */ = {
+			isa = PBXGroup;
+			children = (
+				B31FA7951FCEB4F60081FBF4 /* simple.json */,
+			);
+			path = mocks;
+			sourceTree = "<group>";
+		};
 		B320DF921FC4E4B700D430FE = {
 			isa = PBXGroup;
 			children = (
@@ -231,7 +258,7 @@
 		B320DFB21FC4E4B800D430FE /* helpmeoutTests */ = {
 			isa = PBXGroup;
 			children = (
-				B320DFB31FC4E4B800D430FE /* HelpmeoutTests.swift */,
+				B31FA7931FCEB4F60081FBF4 /* commonTests */,
 				B320DFB51FC4E4B800D430FE /* Info.plist */,
 			);
 			path = helpmeoutTests;
@@ -259,6 +286,8 @@
 		B38B5BE61FC9899500F60337 /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B31FA7881FCEB0490081FBF4 /* MockHelper.swift */,
+				B31FA7891FCEB0490081FBF4 /* NotificationsHelper.swift */,
 				B317A8821FCB022F00292FCE /* UIImage+Utils.swift */,
 				B38B5BEF1FC98CFE00F60337 /* String+Utils.swift */,
 				B38B5BEB1FC98CD800F60337 /* UIAlertController+Utils.swift */,
@@ -469,6 +498,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B31FA7971FCEB4F60081FBF4 /* simple.json in Resources */,
+				B31FA79A1FCEB6620081FBF4 /* TEST-GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -690,6 +721,7 @@
 			files = (
 				B30771451FCA3D45000688D9 /* MainCoordinator.swift in Sources */,
 				B307713C1FCA188C000688D9 /* LoginCoordinator.swift in Sources */,
+				B31FA78B1FCEB0490081FBF4 /* NotificationsHelper.swift in Sources */,
 				B30555C01FCCE82A00819734 /* Patient.swift in Sources */,
 				B317A8891FCB6BAD00292FCE /* Caregiver.swift in Sources */,
 				B38B5C101FC9AB7B00F60337 /* Services.swift in Sources */,
@@ -722,7 +754,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B320DFB41FC4E4B800D430FE /* HelpmeoutTests.swift in Sources */,
+				B31FA78C1FCEB04D0081FBF4 /* MockHelper.swift in Sources */,
+				B31FA7981FCEB4F60081FBF4 /* CloudFunctionsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +932,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sirioz.helpmeout.patient;
+				PRODUCT_MODULE_NAME = helpmeout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -920,6 +954,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\"";
 				PRODUCT_BUNDLE_IDENTIFIER = com.sirioz.helpmeout.patient;
+				PRODUCT_MODULE_NAME = helpmeout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

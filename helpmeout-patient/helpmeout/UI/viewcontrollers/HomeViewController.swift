@@ -50,6 +50,7 @@ extension HomeViewController {
     
     @IBAction func logoutPressed(_ sender: Any) {
         viewModel.logout()
+        LoginCoordinator(withWindow: self.view.window!, cloudFunctions: viewModel.cloudFunctions).start()
     }
     
     @IBAction func sosButtonPressed(_ sender: UIButton) {

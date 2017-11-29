@@ -1,0 +1,83 @@
+{
+  "caregivers" : {
+    "7CcpEAgJUuaB6LTJGDWm0HX6wUO2" : {
+      "patients" : {
+        "HkACK7ueM" : {
+          "waiting" : false
+        }
+      },
+      "pushToken" : "fisLJ8X2dec:APA91bG4iWPQstDNgCkuEDtAf8MW35WL5qIC3xVU0KSakhhsjKQ2EFfD1HAgMliM_HXDW3nUybTwiv-pVhV-5SIdPLEmmw6j7ODzGJtB03gBqcspi0q-opuGEpfrGWS7oAmpBplnWC2S",
+      "shortId" : "SknaJNilG"
+    }
+  },
+  "patients" : {
+    "4uv5FbamwXb3tihe4iSTw9EtKLk2" : {
+      "caregivers" : {
+        "SknaJNilG" : {
+          "waiting" : false
+        }
+      },
+      "pushToken" : "eUSlztAjiiQ:APA91bHP1Kj2ID9_8zWLhoa9SRb8Yt-49YjYi_JtRHb0kPKGAwQKC5GbyXeQHHFQS8WHuX9h0rz_RNX95HfJ28APxsA1SZNcv4rp5dcosS8jRpPVbDLdFIO9liglaayQoCVeRCl7rLpr",
+      "shortId" : "HkACK7ueM",
+      "sosRequests" : {
+        "-L-0jbRt-QWeFyxUjzA4" : {
+          "timeStamp" : 1511857751641
+        },
+        "-L-0jf1S-uDzfSloPqp5" : {
+          "timeStamp" : 1511857763391
+        },
+        "-L-0xxmfywP6JtANnqhd" : {
+          "timeStamp" : 1511861513170
+        },
+        "-L-1-ODdDIHa1GK2AaIC" : {
+          "timeStamp" : 1511862151623
+        },
+        "-L-10ThkhRopSQBHrnHC" : {
+          "timeStamp" : 1511862433483
+        },
+        "-L-10Yg79WMWyX-635pf" : {
+          "timeStamp" : 1511862451920
+        },
+        "-L-11kmaERcWIEHCY7zc" : {
+          "timeStamp" : 1511862767442
+        },
+        "-L-11uKlVZ1_UbZDSqsi" : {
+          "timeStamp" : 1511862809892
+        },
+        "-L-139Ka9nLwiJMoCTl9" : {
+          "timeStamp" : 1511863134226
+        },
+        "-L-1KTf2V-gQGs7K7Xce" : {
+          "timeStamp" : 1511867676057
+        },
+        "-L-1RzYZOfQOsl0Mc0c-" : {
+          "timeStamp" : 1511869645767
+        },
+        "-L-1YOzwvIiEQzMVpOOb" : {
+          "timeStamp" : 1511871327220
+        },
+        "-L-1ZBojWwBRSiRu-5hb" : {
+          "timeStamp" : 1511871536727
+        },
+        "-L-1Zt5bHX6hNKIbLcPg" : {
+          "timeStamp" : 1511871718569
+        },
+        "-L-1_1ZE-iw2cYuzxgQj" : {
+          "timeStamp" : 1511871752793
+        },
+        "-L-1_lViJkM2Oz8_DgZ-" : {
+          "timeStamp" : 1511871947668
+        },
+        "-L-1b2WogYgV9vbBUP-Y" : {
+          "timeStamp" : 1511872284031
+        },
+        "-L-1cO8UkGREVVzKrkRZ" : {
+          "timeStamp" : 1511872634730
+        },
+        "-L-1xzcZL-A3WLScgSDe" : {
+          "timeStamp" : 1511878294817
+        }
+      }
+    }
+  }
+}

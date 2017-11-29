@@ -1,0 +1,12 @@
+{
+  "rules": {
+    ".read": "auth != null",
+    ".write": "auth != null",
+    "patients": {
+    	".indexOn": "shortId"
+    },
+    "caregivers": {
+    	".indexOn": "shortId"
+    }
+  }
+}
