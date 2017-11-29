@@ -69,4 +69,3 @@ NOTE: for some weird (documented) reasons the Firebase local server works only i
 - Testing approach, the simplest possible. Write & read back on a local db, recreating the db each time.
 - TODO: better testing approach: mock all the Firebase calls to get more fine control and not rely on a phisical db.
 
-# Documentation still in progres...
