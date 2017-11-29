@@ -13,6 +13,7 @@ class MainCoordinator: Coordinator {
     
     let window: UIWindow
     let cloudFunctions: CloudFunctions
+    var notificationHelper: NotificationHelper?
     
     init(withWindow: UIWindow, cloudFunctions: CloudFunctions) {
         self.window = withWindow
@@ -40,6 +41,10 @@ class MainCoordinator: Coordinator {
         tab.viewControllers = [caregiversNav, homeVC, notificationsNav]
         window.rootViewController = tab
         tab.selectedIndex = 1
+        
+        notificationHelper = NotificationHelper(application: UIApplication.shared, cloudFunctions: cloudFunctions)
+        notificationHelper?.sendCurrentUserFCMToken()
+        notificationHelper?.setupRemoteNotifications()
         
     }
     

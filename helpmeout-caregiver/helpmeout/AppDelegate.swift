@@ -17,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let services = Services()
     var loginCoordinator: LoginCoordinator?
     var notificationsHelper: NotificationHelper?
+    var appLogic: AppLogic!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
@@ -29,13 +30,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         setupServices()
         Messaging.messaging().delegate = self
-        notificationsHelper = NotificationHelper(application: application, cloudFunctions: services.cloudFunctions!)
-        notificationsHelper?.delegate = self
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
         window!.rootViewController = UIViewController()
 
+        appLogic = AppLogic(window: window!, cloudFunctions: self.services.cloudFunctions!)
+        notificationsHelper = NotificationHelper(application: application, cloudFunctions: services.cloudFunctions!)
+        notificationsHelper?.delegate = appLogic
+        
         if services.cloudFunctions?.isAuthenticated ?? false {
             MainCoordinator(withWindow: self.window!, cloudFunctions: services.cloudFunctions!).start()
         } else {
@@ -80,33 +83,7 @@ extension AppDelegate: MessagingDelegate {
     
 }
 
-extension AppDelegate: NotificationDelegate {
-
-    func didReceivePushData(userInfo: NSDictionary?, title: String?, body: String?) {
-        
-        if let opType = userInfo?["opType"] as? String {
-            switch opType {
-            case "pReq":
-                if let vc = window?.rootViewController! {
-                    UIAlertController.showConfirm(on: vc, title: title ?? "", message: body ?? "", actionTitle: NSLocalizedString("Confirm", comment: ""), actionStyle: .default, cancelActionTitle: NSLocalizedString("Cancel", comment: "")) {
-                        if let shortId = userInfo?["patientShortId"] as? String {
-                            let patient = Patient(shortId: shortId)
-                            PatientsViewModel(cloudFunctions: self.services.cloudFunctions!).confirmPatient(patient)
-                        }
-                    }
-                }
-            default:
-                break
-            }
-        } else {
-            if let vc = window?.rootViewController! {
-                UIAlertController.showNoAction(on: vc, title: title, message: body)
-            }
-        }
-    }
-}
-
-// MARK: TestDB Setup, onyl for TESTING
+// MARK: TestDB Setup, only for TESTING
 extension AppDelegate {
     
     private func testBundle() -> Bundle? {

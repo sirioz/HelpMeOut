@@ -32,6 +32,7 @@
 		B320DFA41FC4E4B800D430FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA21FC4E4B800D430FE /* Main.storyboard */; };
 		B320DFA61FC4E4B800D430FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA51FC4E4B800D430FE /* Assets.xcassets */; };
 		B320DFA91FC4E4B800D430FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B320DFA71FC4E4B800D430FE /* LaunchScreen.storyboard */; };
+		B34CB2781FCF6DF800D0FF6B /* AppLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B34CB2771FCF6DF800D0FF6B /* AppLogic.swift */; };
 		B36F7DD11FC61BF10041EC13 /* CloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F7DD01FC61BF10041EC13 /* CloudFunctions.swift */; };
 		B36F7DD41FC61D530041EC13 /* FirCloudFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36F7DD31FC61D530041EC13 /* FirCloudFunctions.swift */; };
 		B38B5BE91FC98BA700F60337 /* ConsoleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38B5BE71FC98BA500F60337 /* ConsoleLogger.swift */; };
@@ -102,6 +103,7 @@
 		B320DFBA1FC4E4B800D430FE /* helpmeoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = helpmeoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B320DFBE1FC4E4B800D430FE /* HelpmeoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpmeoutUITests.swift; sourceTree = "<group>"; };
 		B320DFC01FC4E4B800D430FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B34CB2771FCF6DF800D0FF6B /* AppLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogic.swift; sourceTree = "<group>"; };
 		B360D1FC1FC4E9CE0091DE3C /* helpmeout.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = helpmeout.entitlements; sourceTree = "<group>"; };
 		B360D2141FC4EEC10091DE3C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B36F7DD01FC61BF10041EC13 /* CloudFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFunctions.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				B360D2141FC4EEC10091DE3C /* GoogleService-Info.plist */,
 				B3BD247A1FCC505100919D21 /* Constants.swift */,
 				B320DF9E1FC4E4B800D430FE /* AppDelegate.swift */,
+				B34CB2771FCF6DF800D0FF6B /* AppLogic.swift */,
 				B38B5C0F1FC9AB7B00F60337 /* Services.swift */,
 				B320DFA21FC4E4B800D430FE /* Main.storyboard */,
 				B320DFA51FC4E4B800D430FE /* Assets.xcassets */,
@@ -738,6 +741,7 @@
 				B317A8831FCB022F00292FCE /* UIImage+Utils.swift in Sources */,
 				B307713F1FCA18A9000688D9 /* Coordinator.swift in Sources */,
 				B30430E11FCDCA9900E030B2 /* NotificationsHelper.swift in Sources */,
+				B34CB2781FCF6DF800D0FF6B /* AppLogic.swift in Sources */,
 				B38B5BE91FC98BA700F60337 /* ConsoleLogger.swift in Sources */,
 				B38B5BF01FC98CFE00F60337 /* String+Utils.swift in Sources */,
 				B307714D1FCA4A73000688D9 /* NotificationsViewController.swift in Sources */,
