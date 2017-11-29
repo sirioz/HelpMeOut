@@ -200,6 +200,8 @@ final class FirCloudFunctions: CloudFunctions {
     
     func logout() {
         try? auth.signOut()
+        
+        // TODO: unsubscribe from notifications
     }
     
 }

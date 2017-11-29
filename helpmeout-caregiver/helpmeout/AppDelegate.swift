@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupServices()
         Messaging.messaging().delegate = self
         notificationsHelper = NotificationHelper(application: application, cloudFunctions: services.cloudFunctions!)
+        notificationsHelper?.delegate = self
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window!.makeKeyAndVisible()
@@ -77,6 +78,32 @@ extension AppDelegate: MessagingDelegate {
         notificationsHelper?.didReceiveRemoteNotification(userInfo: userInfo)
     }
     
+}
+
+extension AppDelegate: NotificationDelegate {
+
+    func didReceivePushData(userInfo: NSDictionary?, title: String?, body: String?) {
+        
+        if let opType = userInfo?["opType"] as? String {
+            switch opType {
+            case "pReq":
+                if let vc = window?.rootViewController! {
+                    UIAlertController.showConfirm(on: vc, title: title ?? "", message: body ?? "", actionTitle: NSLocalizedString("Confirm", comment: ""), actionStyle: .default, cancelActionTitle: NSLocalizedString("Cancel", comment: "")) {
+                        if let shortId = userInfo?["patientShortId"] as? String {
+                            let patient = Patient(shortId: shortId)
+                            PatientsViewModel(cloudFunctions: self.services.cloudFunctions!).confirmPatient(patient)
+                        }
+                    }
+                }
+            default:
+                break
+            }
+        } else {
+            if let vc = window?.rootViewController! {
+                UIAlertController.showNoAction(on: vc, title: title, message: body)
+            }
+        }
+    }
 }
 
 // MARK: TestDB Setup, onyl for TESTING

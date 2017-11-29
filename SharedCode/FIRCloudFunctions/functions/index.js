@@ -6,36 +6,45 @@ const shortid = require('shortid');
 
 admin.initializeApp(functions.config().firebase);
 
-function buildPushPayload(title, body) {
-  return {
+function buildPushPayload(title, body, data) {
+  var payLoad = {
     notification: {
       title: title,
       body: body,
       sound: 'default'
     }
   }
+  if (data) {
+    payLoad['data'] = data
+  }
+  return payLoad
 }
 
 function caregiversForPatient(patientShortId) {
   return new Promise( (resolve, reject) => {
     admin.database().ref('/caregivers').orderByChild(`patients/${patientShortId}`).on('value', snapshot => {
-      var caregivers = []      
+      var caregivers = []     
       snapshot.forEach(child => {
-        let uId = child.key
-        let pushToken = child.val().pushToken
-        caregivers.push({uId, pushToken})
+        let patients = child.val().patients
+        if (patients) {
+          if (patients[patientShortId].waiting == false) {
+            let uId = child.key
+            let pushToken = child.val().pushToken
+            caregivers.push({uId, pushToken})
+          }
+        }
       })
       resolve(caregivers)
     })
   })
 }
 
-// exports.test = functions.https.onRequest((req, res) => {
-//   let shortId = req.query.shortId
-//   caregiversForPatient(shortId).then(caregivers => {
-//     res.send(caregivers)
-//   })
-// })
+exports.test = functions.https.onRequest((req, res) => {
+  let shortId = req.query.shortId
+  caregiversForPatient(shortId).then(caregivers => {
+    res.send(caregivers)
+  })
+})
 
 exports.sendCaregiverRequestNotification = functions.database.ref('/patients/{patientId}/caregivers/{cgShortId}').onCreate(event => {
   let cgShortId = event.params.cgShortId
@@ -51,7 +60,7 @@ exports.sendCaregiverRequestNotification = functions.database.ref('/patients/{pa
         console.error("PushToken not found")
         return false
       }
-      let payload = buildPushPayload('Patient request',`Patient '${patientShortId}' asked to add you.`)
+      let payload = buildPushPayload('Patient request',`Patient '${patientShortId}' asked to add you.`, {opType: 'pReq', patientShortId})
       console.info("Sending message to: "+token)
       console.info("Payload: "+JSON.stringify(payload))
       return admin.messaging().sendToDevice([token], payload).then(response => {

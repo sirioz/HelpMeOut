@@ -15,13 +15,22 @@ struct HomeViewModel {
 
 extension HomeViewModel {
     
-    func shortId() -> Promise<ShortId> {
+    func shortId(onData: @escaping (ShortId?) -> Void) {
         guard let uid = cloudFunctions.currentUser?.uid else {
-            let p = Promise<ShortId>()
-            p.reject(CloudError("Invalid shortId"))
-            return p
+            onData(nil)
+            return
         }
-        return cloudFunctions.userShortId(uid: uid, userType: .patient)
+        cloudFunctions.userShortId(uid: uid, userType: .patient, onData: onData)
+    }
+    
+    func fetchCaregivers(onData: @escaping ([Caregiver]) -> Void) {
+        if let uid = self.cloudFunctions.currentUser?.uid {
+            self.cloudFunctions.caregiversForPatient(patientUid: uid) { caregivers in
+                onData(caregivers)
+            }
+        } else {
+            onData([])
+        }
     }
     
     func createSosRequest(onCompletion: @escaping (Error?) -> Void) {

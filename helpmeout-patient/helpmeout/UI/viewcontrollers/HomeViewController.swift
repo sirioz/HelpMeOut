@@ -12,6 +12,7 @@ class HomeViewController: BaseViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sosPanelView: UIView!
+    @IBOutlet weak var emptyStateLabel: UILabel!
     
     var viewModel: HomeViewModel!
     
@@ -39,9 +40,19 @@ extension HomeViewController {
 extension HomeViewController {
     
     private func configure() {
-        viewModel.shortId().done { [unowned self] shortId in
+        
+        sosPanelView.isHidden = true
+        emptyStateLabel.isHidden = true
+        
+        viewModel.shortId { [unowned self] shortId in
             let title = NSLocalizedString("Your ID", comment: "")
-            self.titleLabel.text = "\(title)\n\(shortId)"
+            self.titleLabel.text = "\(title)\n\(shortId ?? "")"
+        }
+        
+        viewModel.fetchCaregivers { [unowned self] caregivers in
+            let active = caregivers.filter { !$0.waiting }
+            self.sosPanelView.isHidden = active.count == 0
+            self.emptyStateLabel.isHidden = !self.sosPanelView.isHidden
         }
     }
 }

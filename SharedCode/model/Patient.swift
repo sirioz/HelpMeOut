@@ -11,4 +11,9 @@ import Foundation
 struct Patient {
     let shortId: ShortId
     let waiting: Bool
+    
+    init(shortId: ShortId, waiting: Bool = true) {
+        self.shortId = shortId
+        self.waiting = waiting
+    }
 }

@@ -78,15 +78,28 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No active caregivers. Use the 'Caregivers' tab to add." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAj-RC-KRi">
+                                <rect key="frame" x="0.0" y="366.33333333333331" width="375" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="qdQ-Hh-SBg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="qAj-RC-KRi" firstAttribute="centerX" secondItem="lzg-cX-TG0" secondAttribute="centerX" id="90c-XP-tzP"/>
                             <constraint firstItem="EF0-aX-UHa" firstAttribute="centerY" secondItem="lzg-cX-TG0" secondAttribute="centerY" id="B0s-Gn-wOc"/>
                             <constraint firstItem="Knh-VQ-6Ep" firstAttribute="trailing" secondItem="jkz-p0-XsU" secondAttribute="trailing" constant="20" id="F9p-TN-L5s"/>
+                            <constraint firstItem="qAj-RC-KRi" firstAttribute="leading" secondItem="Knh-VQ-6Ep" secondAttribute="leading" id="aWw-Rg-Zww"/>
                             <constraint firstItem="EF0-aX-UHa" firstAttribute="width" secondItem="lzg-cX-TG0" secondAttribute="width" multiplier="0.7" id="dmq-Sg-sRx"/>
                             <constraint firstItem="jkz-p0-XsU" firstAttribute="top" secondItem="Knh-VQ-6Ep" secondAttribute="top" constant="10" id="e0h-D3-RyB"/>
                             <constraint firstItem="wwY-vp-jLf" firstAttribute="leading" secondItem="Knh-VQ-6Ep" secondAttribute="leading" id="iIr-4O-0RT"/>
+                            <constraint firstItem="qAj-RC-KRi" firstAttribute="centerY" secondItem="lzg-cX-TG0" secondAttribute="centerY" id="pPQ-Ht-qch"/>
                             <constraint firstItem="Knh-VQ-6Ep" firstAttribute="trailing" secondItem="wwY-vp-jLf" secondAttribute="trailing" id="ptb-if-pbm"/>
+                            <constraint firstItem="Knh-VQ-6Ep" firstAttribute="trailing" secondItem="qAj-RC-KRi" secondAttribute="trailing" id="sxu-le-poK"/>
                             <constraint firstItem="EF0-aX-UHa" firstAttribute="centerX" secondItem="lzg-cX-TG0" secondAttribute="centerX" id="u7S-Cc-5U8"/>
                             <constraint firstItem="wwY-vp-jLf" firstAttribute="top" secondItem="jkz-p0-XsU" secondAttribute="bottom" constant="20" id="zyN-Fm-ORn"/>
                         </constraints>
@@ -94,6 +107,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
+                        <outlet property="emptyStateLabel" destination="qAj-RC-KRi" id="piX-62-aRx"/>
                         <outlet property="sosPanelView" destination="EF0-aX-UHa" id="KDp-Pf-r7T"/>
                         <outlet property="titleLabel" destination="wwY-vp-jLf" id="MhB-MR-KzO"/>
                     </connections>

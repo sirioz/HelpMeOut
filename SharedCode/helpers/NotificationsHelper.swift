@@ -10,10 +10,15 @@ import UIKit
 import UserNotifications
 import FirebaseMessaging
 
+protocol NotificationDelegate: class {
+    func didReceivePushData(userInfo: NSDictionary?, title: String?, body: String?)
+}
+
 class NotificationHelper {
     
     let application: UIApplication
     let cloudFunctions: CloudFunctions
+    weak var delegate: NotificationDelegate?
     
     init(application: UIApplication, cloudFunctions: CloudFunctions) {
         self.application = application
@@ -56,6 +61,12 @@ class NotificationHelper {
         } else {
             body = aps["alert"] as? String ?? ""
         }
+        
+        if let delegate = delegate {
+            delegate.didReceivePushData(userInfo: NSDictionary.init(dictionary: userInfo), title: title, body: body)
+            return
+        }
+        
         if let vc = application.keyWindow?.rootViewController {
             UIAlertController.showNoAction(on: vc, title: title, message: body)
         }
