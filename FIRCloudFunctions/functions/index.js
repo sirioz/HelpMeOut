@@ -39,12 +39,12 @@ function caregiversForPatient(patientShortId) {
   })
 }
 
-exports.test = functions.https.onRequest((req, res) => {
-  let shortId = req.query.shortId
-  caregiversForPatient(shortId).then(caregivers => {
-    res.send(caregivers)
-  })
-})
+// exports.test = functions.https.onRequest((req, res) => {
+//   let shortId = req.query.shortId
+//   caregiversForPatient(shortId).then(caregivers => {
+//     res.send(caregivers)
+//   })
+// })
 
 exports.sendCaregiverRequestNotification = functions.database.ref('/patients/{patientId}/caregivers/{cgShortId}').onCreate(event => {
   let cgShortId = event.params.cgShortId
