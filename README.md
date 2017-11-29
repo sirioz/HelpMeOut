@@ -6,7 +6,7 @@ The project is composed by:
 - Firebase cloud functions
 
 ## Compiling
-- Enter into the folder apps (helpmeout-caregiver, helpmeout-patients)
+- Enter into the folder apps (helpmeout-caregiver, helpmeout-patients).
 - `pod init`
 - Open the `\*.xcworkspace` in XCode and compile. To run the apps on a physical device you'll have to provide some valid provisioning profiles with **push notifications option enabled**.
 
@@ -15,10 +15,10 @@ In order to have push notifications working you need to get - from Apple Develop
 
 ## Firebase configuration
 Configuring Firebase takes some time...
-- Open the console (https://console.firebase.google.com) and create a new project, give it a name (HelpMeOut)
+- Open the console (https://console.firebase.google.com) and create a new project, give it a name (HelpMeOut).
 - **Add your iOS apps**, using 2 differents bundleId (E.G: com...-patient, com...-caregiver).
 - For each app, download the configuration .plist. This configuration must then be added to your xcode project.
-- For each app, in section *Cloud Messaging*, add the APNs Key you downloaded before. This will link Firebase to your apps and will let you receive push notifications
+- For each app, in section *Cloud Messaging*, add the APNs Key you downloaded before. This will link Firebase to your apps and will let you send and receive push notifications.
 - **Authentication**. Go to Authentication/Methods and enable *Email* and *Phone*. These are the 2 only methods available in the apps.
 - **Database**. Create a new Realtime Database under *Database* section.
 - Rules. Just to speed up queries there are 2 simple indexes to apply on the database itself. You can go to folder FIRCloudFunctions and copy them from the `firebase-rules.json` file. BTW, they are not mandatory.
@@ -26,7 +26,7 @@ Configuring Firebase takes some time...
 
 ## Testing
 Testing the app requires to launch a local Firebase server.
-- Cd into `FIRCloudFunctions/test-server` folder
+- Cd into `FIRCloudFunctions/test-server` folder.
 - `npm install`
 - `npm start`
 
