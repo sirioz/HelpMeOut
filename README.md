@@ -19,7 +19,7 @@ Both the Patients and the Caregivers can authenticate in the apps using phone nu
 
 Patients can add one or more caregivers and wait for their approval.
 
-Caregivers receive the patients' requests and can accept them or not.
+Caregivers receive the patients requests and can accept them or not.
 
 Patients can then send SOS request to they caregivers (those that accepted the request).
 
@@ -42,6 +42,14 @@ Configuring Firebase takes some time...
 - **Database**. Create a new Realtime Database under *Database* section.
 - Rules. Just to speed up queries there are 2 simple indexes to apply on the database itself. You can go to folder FIRCloudFunctions and copy them from the `firebase-rules.json` file. BTW, they are not mandatory.
 - **CloudFunctions**. In order to trigger push notifications and to generate IDs there are some functions to upload to the database. Go to folder `FIRCloudFunctions/functions` and deploy them with `npm install`, `firebase deploy`.
+
+## Architecture
+The apps are built on MVVM+C architecture. The choice is a perfect balance between simplicity and testability and avoids both boilerplate code (VIPER) and massive view controllers (MVC).
+Since the 2 apps are very similar, I decided to share some code but to keep them as 2 separate projects, in order to preserve future indipendent scalability.
+TODO: Put the shared code in a POD.
+On the backend the only thing to notice is the users ID number generator: I decided for a shortID algorithm,easy to generate maybe not so easy for users to type.
+TODO: use a synchronized sequence number generator.
+
 
 ## Testing
 Testing the app requires to launch a local Firebase server.
