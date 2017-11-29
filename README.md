@@ -7,8 +7,8 @@ The project is composed by:
 
 ## Compiling
 - Enter into the folder apps (helpmeout-caregiver, helpmeout-patients)
-- pod init
-- Open the \*.xcworkspace in XCode and compile. To run the apps on a physical device you'll have to provide some valid provisioning profiles with **push notifications option enabled**.
+- `pod init`
+- Open the `\*.xcworkspace` in XCode and compile. To run the apps on a physical device you'll have to provide some valid provisioning profiles with **push notifications option enabled**.
 
 ## Push notifications
 In order to have push notifications working you need to get - from Apple Developer - an APNs key (Section: Keys) for each app. These keys will then be used on the Firebase console too.
@@ -16,7 +16,7 @@ In order to have push notifications working you need to get - from Apple Develop
 ## Firebase configuration
 Configuring Firebase takes some time...
 - Open the console (https://console.firebase.google.com) and create a new project, give it a name (HelpMeOut)
-- Add your iOS apps, using 2 different bundleId (E.G: com...-patient, com...-caregiver).
+- **Add your iOS apps**, using 2 differents bundleId (E.G: com...-patient, com...-caregiver).
 - For each app, download the configuration .plist. This configuration must then be added to your xcode project.
 - For each app, in section *Cloud Messaging*, add the APNs Key you downloaded before. This will link Firebase to your apps and will let you receive push notifications
 - **Authentication**. Go to Authentication/Methods and enable *Email* and *Phone*. These are the 2 only methods available in the apps.
