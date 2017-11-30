@@ -45,7 +45,7 @@ Configuring Firebase takes some time...
 - **CloudFunctions**. In order to trigger push notifications and to generate IDs there are some functions to upload to the database. Go to folder `FIRCloudFunctions/functions` and deploy them with `npm install`, `firebase deploy`.
 
 ## Architecture
-The apps are built on MVVM+C architecture. The choice is a perfect balance between simplicity and testability and avoids both boilerplate code (VIPER) and massive view controllers (MVC).
+The apps are built on MVVM+C architecture. The choice is a perfect balance between simplicity and testability and avoids both (too much) boilerplate code (VIPER) and massive view controllers (MVC).
 Since the 2 apps are very similar, I decided to share some code but to keep them as 2 separate projects, in order to preserve a future indipendent scalability.
 
 TODO: Put the shared code in a POD.
