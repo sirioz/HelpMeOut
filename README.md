@@ -59,6 +59,7 @@ Testing the app requires to launch a local Firebase server.
 - Cd into `FIRCloudFunctions/test-server` folder.
 - `npm install`
 - `npm start`
+- Run tests on XCode as usual.
 
 NOTE: for some weird (documented) reasons the Firebase local server works only if you add the local address to `/etc/hosts`
 
