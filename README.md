@@ -34,6 +34,7 @@ In order to have push notifications working you need to get - from Apple Develop
 
 ## Firebase configuration
 Configuring Firebase takes some time...
+- The XCode projects already contain a working Firebase configuration, then **it's not mandatory to create a new one**.
 - Open the console (https://console.firebase.google.com) and create a new project, give it a name (HelpMeOut).
 - **Add your iOS apps**, using 2 differents bundleId (E.G: com...-patient, com...-caregiver).
 - For each app, download the configuration .plist. This configuration must then be added to your xcode project.
