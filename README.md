@@ -26,7 +26,7 @@ Patients can then send SOS request to they caregivers (those that accepted the r
 
 ## Compiling
 - Enter into the folder apps (`helpmeout-caregiver`, `helpmeout-patients`).
-- `pod init`
+- `pod install`
 - Open the `\*.xcworkspace` in XCode and compile. To run the apps on a physical device you'll have to provide some valid provisioning profiles with **push notifications option enabled**.
 
 ## Push notifications
