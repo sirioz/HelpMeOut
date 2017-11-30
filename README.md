@@ -51,7 +51,7 @@ TODO: Put the shared code in a POD.
 
 On the backend the only thing to notice is the users ID number generator: **I decided for a shortID algorithm, easy to generate BUT probably not so easy for users to type**.
 
-**IMPORTANT! TODO**: use a synchronized sequence number generator.
+**IMPORTANT! TODO**: implement a synchronized sequence number generator.
 
 
 ## Testing
