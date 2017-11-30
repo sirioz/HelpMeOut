@@ -46,7 +46,7 @@ Configuring Firebase takes some time...
 
 ## Architecture
 The apps are built on MVVM+C architecture. The choice is a perfect balance between simplicity and testability and avoids both (too much) boilerplate code (VIPER) and massive view controllers (MVC).
-Since the 2 apps are very similar, I decided to share some code but to keep them as 2 separate projects, in order to preserve a future indipendent scalability.
+Since the 2 apps are very similar, I decided to share some code and to keep them as a two separate projects, in order to preserve a future indipendent scalability.
 
 TODO: Put the shared code in a POD.
 
