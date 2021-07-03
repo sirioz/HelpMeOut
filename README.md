@@ -50,7 +50,7 @@ Since the 2 apps are very similar, I decided to share some code between them but
 
 TODO: Put the shared code in a POD.
 
-On the backend the only thing to notice is the users ID number generator: **I decided for a shortID algorithm, easy to generate BUT probably not so easy for users to type**.
+On the backend side, the only thing to notice is the users ID number generator: **I decided for a shortID algorithm, easy to generate BUT probably not so easy for users to type**.
 
 **IMPORTANT! TODO**: implement a synchronized sequence number generator.
 
